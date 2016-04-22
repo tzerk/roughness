@@ -1,5 +1,5 @@
 ###################  PLOT  #################
-.plot_Outlier <- function(x, y, main, mtext = "") {
+plot_Outlier <- function(x, y, main, mtext = "") {
   
   plot(x = x, 
        y = y, 
@@ -18,7 +18,7 @@
 
 
 ###################  CALCULATE CHUNK INDICES  #################
-.chunk_Indices <- function(data, WIDTH = 10, STEP = 1) {
+chunk_Indices <- function(data, WIDTH = 10, STEP = 1) {
   
   LENGTH <- nrow(data)
   START <- seq(1, LENGTH - WIDTH + 1, STEP)
