@@ -34,3 +34,4 @@ packrat/lib*/
 packrat/src/
 src/*.o
 src/*.dll
+inst/extdata/Feldmessung*
