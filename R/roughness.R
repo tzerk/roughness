@@ -7,4 +7,5 @@
 #' @docType package
 #' @importFrom graphics boxplot hist par plot points abline
 #' @importFrom stats na.omit na.pass coef
+#' @importFrom utils modifyList
 NULL
