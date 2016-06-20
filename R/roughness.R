@@ -5,6 +5,6 @@
 #' @name roughness-package
 #' @aliases roughness
 #' @docType package
-#' @importFrom graphics boxplot hist par plot points
-#' @importFrom stats na.omit
+#' @importFrom graphics boxplot hist par plot points abline
+#' @importFrom stats na.omit na.pass coef
 NULL
