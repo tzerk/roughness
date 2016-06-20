@@ -40,9 +40,16 @@ find_Outliers <- function(data,
                           plot = TRUE,
                           ...) {
   
+  ## rewrite data (backwards compatibility)
   datacm <- data
   
-  # PREFILTER ----
+  ## Settings ----
+  settings <- list(main = "",
+                   mtext = deparse(substitute(data)))
+  
+  settings <- modifyList(settings, list(...))
+  
+  ## PREFILTER ----
   if (prefilter) {
     median <- median(data[ ,2], na.rm = TRUE)
     datacm[which(datacm[ ,2] < median - 10), 2] <- NA
@@ -121,8 +128,8 @@ find_Outliers <- function(data,
     par(mfrow = c(length(method) + 1, ifelse(hist, 2, 1)))
     
     #plots "numericdata" as a scatter plot without outliers
-    plot_Outlier(x = datacm$x, y = datacm$y, main = "",
-                 mtext = deparse(substitute(data)))
+    plot_Outlier(x = datacm$x, y = datacm$y, main = settings$main,
+                 mtext = settings$mtext)
     
     
     # plot histogram
