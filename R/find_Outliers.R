@@ -4,16 +4,20 @@
 #'
 #' @param data the .log file
 #' 
+#' @param prefilter remove values that are +- 10 cm of the median
+#' 
 #' @param method currently implemented: "iqr", "sd", "mad"
 #' 
 #' @param remove returns the original data set with ourliers removed by the
 #' specified method (same options as for argument 'method')
 #' 
+#' @param window identify outliers in moving windows
+#' 
 #' @param width width of moving window
 #' 
 #' @param step step size of moving window
 #' 
-#' @param auto.decide let the algorithm decide which method to use
+#' @param hist should histograms be plotted?
 #' 
 #' @param plot should the results be plotted?
 #' 
@@ -26,43 +30,43 @@
 #' @examples
 #' # none
 find_Outliers <- function(data, 
+                          prefilter = TRUE,
                           method = c("iqr", "sd", "mad"),
                           remove = "mad",
                           window = FALSE,
-                          width = 100, 
-                          step = 50, 
-                          auto.decide = TRUE,
+                          width = 20, 
+                          step = 10, 
                           hist = TRUE,
                           plot = TRUE,
                           ...) {
   
   datacm <- data
   
+  # PREFILTER ----
+  if (prefilter) {
+    median <- median(data[ ,2], na.rm = TRUE)
+    datacm[which(datacm[ ,2] < median - 10), 2] <- NA
+    datacm[which(datacm[ ,2] > median + 10), 2] <- NA
+  }
+  
   if (window)
     chunk.indices <- chunk_Indices(data = datacm, WIDTH = width, STEP = step)
   else
     chunk.indices <- data.frame(start = 1,
                                 end = nrow(datacm))
-  
-  stats <- calc_Stats(datacm)
-  #print(stats)
+
   
   for (k in 1:nrow(chunk.indices)) {
     
     datacmfinal <- datacm[chunk.indices[k,1]:chunk.indices[k,2], ]
     
-    #adss a new column "log" to data.frame
-    #datacm1["log"] <- log(numericdata)
-    
-    
     ###################  REMOVE OUTLIER BY BOXPLOT  #########################
     
-    #plots boxplot, removes outliers according to boxplot and creates new data.frame "no" without outliers
+    #creates boxplot and assigns all(upper AND lower) outliers(out) to bp
     bp <- boxplot(datacmfinal$y, plot = FALSE)$out
     
-    # this removes the outliers of the lower part of the distribution
-    # may need to be changed!!!
-    bp <- bp[bp < median(datacmfinal$y, na.rm = TRUE)]
+    #overwrites bp only with upper outliers
+    #bp <- bp[bp < median(datacmfinal$y, na.rm = TRUE)]
     
     temp <- datacmfinal
     temp[which(temp$y %in% bp), "y"] <- NA
@@ -73,12 +77,12 @@ find_Outliers <- function(data,
     
     ###################  OUTLIER: THREE TIMES STD DEV  #########################
     
-    #removes outliers higher/lower 2*sd
+    #removes outliers higher/lower 3*sd
     temp <- datacmfinal
     
     mean <- mean(temp$y, na.rm = TRUE)
     sd <- sd(temp$y, na.rm = TRUE)
-    outliers <- na.omit(temp[temp$y < mean - 3 * sd, ])
+    outliers <- na.omit(temp[(temp$y < mean - 3 * sd)|(temp$y > mean + 3 * sd),])
     temp <- temp[temp$y > mean - 3 * sd, ]
     
     # increase outlier-counter in original data.frame
@@ -89,7 +93,7 @@ find_Outliers <- function(data,
     
     temp <- datacmfinal
     
-    #removes outliers higher/lower 3*MAD
+    #removes outliers higher/lower 4*MAD
     # b <- 1/quantile(datacmfinal$y, c(0.75), na.rm = TRUE)
     median <- median(temp$y, na.rm = TRUE)
     mad <- mad(x = datacmfinal$y,
@@ -99,8 +103,8 @@ find_Outliers <- function(data,
                low = FALSE,
                high = FALSE)
     
-    outliers <- na.omit(temp[temp$y < median - 3 * mad, ])
-    temp <- temp[temp$y > median - 3 * mad, ]
+    outliers <- na.omit(temp[(temp$y < median - 4 * mad)|(temp$y > median + 4 * mad),])
+    temp <- temp[temp$y > median - 4 * mad, ]
     
     # increase outlier-counter in original data.frame
     datacm[outliers$id, "mad"] <- datacm[outliers$id, "mad"] + 1
@@ -111,6 +115,7 @@ find_Outliers <- function(data,
   
   #### PLOT ALL
   if (plot) {
+    
     
     # set graphical parameters, 2 columns, 4 rows
     par(mfrow = c(length(method) + 1, ifelse(hist, 2, 1)))
@@ -160,7 +165,7 @@ find_Outliers <- function(data,
       temp <- datacm[which(datacm$mad == 0), ]
       outliers <- datacm[which(datacm$mad != 0), ]
       
-      plot_Outlier(x = temp$x, y = temp$y, main = "> 3 MAD method",
+      plot_Outlier(x = temp$x, y = temp$y, main = "> 4 MAD method",
                    mtext = paste("Removed", nrow(outliers), "outliers"))
       
       points(outliers,
@@ -182,6 +187,6 @@ find_Outliers <- function(data,
   
   new.data <- datacm[ ,1:2]
   
-  return(new.data)
+  invisible(new.data)
 }
 

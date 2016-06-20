@@ -4,23 +4,27 @@
 \alias{find_Outliers}
 \title{Function to detect outliers in the roughness data}
 \usage{
-find_Outliers(data, method = c("iqr", "sd", "mad"), remove = "mad",
-  window = FALSE, width = 100, step = 50, auto.decide = TRUE,
-  hist = TRUE, plot = TRUE, ...)
+find_Outliers(data, prefilter = TRUE, method = c("iqr", "sd", "mad"),
+  remove = "mad", window = FALSE, width = 20, step = 10, hist = TRUE,
+  plot = TRUE, ...)
 }
 \arguments{
 \item{data}{the .log file}
+
+\item{prefilter}{remove values that are +- 10 cm of the median}
 
 \item{method}{currently implemented: "iqr", "sd", "mad"}
 
 \item{remove}{returns the original data set with ourliers removed by the
 specified method (same options as for argument 'method')}
 
+\item{window}{identify outliers in moving windows}
+
 \item{width}{width of moving window}
 
 \item{step}{step size of moving window}
 
-\item{auto.decide}{let the algorithm decide which method to use}
+\item{hist}{should histograms be plotted?}
 
 \item{plot}{should the results be plotted?}
 
