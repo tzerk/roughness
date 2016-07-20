@@ -28,7 +28,6 @@ vignettes/*.pdf
 .Rprofile
 RLum.Debug/
 RLum.Experiment/
-scripts/
 packrat/
 packrat/lib*/
 packrat/src/
