@@ -4,10 +4,12 @@
 \alias{import_Data}
 \title{Function to import .log files}
 \usage{
-import_Data(file)
+import_Data(file, warnings = FALSE)
 }
 \arguments{
 \item{file}{full path to the file}
+
+\item{warnings}{show warnings produced by readLines (TRUE or FALSE)}
 }
 \value{
 a data.frame
