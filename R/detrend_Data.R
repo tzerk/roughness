@@ -37,7 +37,7 @@ detrend_Data <- function(data,
     
     plot(newdata, main = "After")
     abline(lm(y ~ x, newdata, na.action = na.omit), col = "red", lty = 2)
-    
-    invisible(newdata)
   }
+  
+  invisible(newdata)
 }
