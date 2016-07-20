@@ -3,6 +3,8 @@
 #' Insert valuable information here
 #'
 #' @param file full path to the file
+#' 
+#' @param warnings show warnings produced by readLines (TRUE or FALSE)
 #'
 #' @return a data.frame
 #' 
@@ -10,10 +12,14 @@
 #' # none
 #' 
 #' @export
-import_Data <- function(file) {
+import_Data <- function(file, warnings = FALSE) {
   
   # import data
+  if (!warnings) 
+    options(warn=-1)
   file_string <- paste(readLines(file), collapse=" ")
+  if (!warnings) 
+    options(warn=0)
   file_split <- strsplit(file_string, split = "#\\*")[[1]]
   
   # remove unwanted characters -> # * \ " 
