@@ -9,32 +9,42 @@ find_Outliers(data, prefilter = TRUE, method = c("iqr", "sd", "mad"),
   plot = TRUE, ...)
 }
 \arguments{
-\item{data}{the .log file}
+\item{data}{\code{\link{data.frame}} (\bold{required}): 
+A log file imported with \code{\link{import_Data}}.}
 
-\item{prefilter}{remove values that are +- 10 cm of the median}
+\item{prefilter}{\code{\link{logical}} (optional): 
+\code{TRUE} to remove values that are +- 10 cm of the median}
 
-\item{method}{currently implemented: "iqr", "sd", "mad"}
+\item{method}{\code{\link{character}} (optional): 
+Vector of methods applied to detect outliers.
+Currently implemented: \code{"iqr"} for Interquartile Range (see \code{\link{IQR}}),
+ \code{"sd"} for Standard Deviation or \code{"mad"} for
+Median Absolut Deviation.}
 
-\item{remove}{returns the original data set with ourliers removed by the
-specified method (same options as for argument 'method')}
+\item{remove}{\code{\link{character}} (optional):
+Returns the original data set with ourliers removed by the
+specified method (same options as for argument \code{method}).}
 
-\item{window}{identify outliers in moving windows}
+\item{window}{\code{\link{logical}} (optional):
+If \code{TRUE} the data set is split in chunks of size specified by \code{width}
+before applying any of the detection methods.}
 
-\item{width}{width of moving window}
+\item{width}{\code{\link{integer}} (optional): Width of moving window.}
 
-\item{step}{step size of moving window}
+\item{step}{\code{\link{integer}} (optional): Step size of moving window.}
 
-\item{hist}{should histograms be plotted?}
+\item{hist}{\code{\link{logical}} (optional): Should histograms be plotted?}
 
-\item{plot}{should the results be plotted?}
+\item{plot}{\code{\link{logical}} (optional): Should the results be plotted?}
 
-\item{...}{currently unused}
+\item{...}{Currently unused.}
 }
 \value{
-A plot and the data set with outliers removed is returned
+The data set with outliers removed is returned. Optionally, a plot
+is created
 }
 \description{
-This function applies three different methods to detect outliers
+This function applies three different methods to detect outliers.
 }
 \examples{
 # none

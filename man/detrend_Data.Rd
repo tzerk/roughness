@@ -7,19 +7,21 @@
 detrend_Data(data, plot = TRUE)
 }
 \arguments{
-\item{data}{input data}
+\item{data}{\code{\link{data.frame}} (\bold{required}): 
+A log file imported with \code{\link{import_Data}}.}
 
-\item{plot}{TRUE or FALSE}
+\item{plot}{\code{\link{logical}} (optional): \code{TRUE} to plot
+the data set before and after detrending.}
 }
 \value{
-console output
+A \code{\link{data.frame}} with detrended input data.
 }
 \description{
-Linear regression to detrend the data
+This function performs a linear regression to detrend the data set.
 }
 \examples{
 
-# none availble yet
+# none
 
 }
 

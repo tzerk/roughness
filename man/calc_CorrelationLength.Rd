@@ -7,22 +7,21 @@
 calc_CorrelationLength(data, plot = TRUE)
 }
 \arguments{
-\item{data}{input data}
+\item{data}{\code{\link{data.frame}} (\bold{required}): 
+A log file imported with \code{\link{import_Data}}.}
 
-\item{plot}{TRUE or FALSE}
+\item{plot}{\code{\link{logical}} (optional): \code{TRUE} to plot
+the graphs produced by \code{\link{acf}}.}
 }
 \value{
-console output
+A plot and a \code{\link{numeric}} value of the correlation length.
 }
 \description{
-<placeholder>
-}
-\details{
-<placeholder>
+Function to calculate the correlation length.
 }
 \examples{
 
-# none available yet
+# none
 
 }
 

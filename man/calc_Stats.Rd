@@ -2,18 +2,21 @@
 % Please edit documentation in R/calc_Stats.R
 \name{calc_Stats}
 \alias{calc_Stats}
-\title{Calculates basic statistics}
+\title{Calculate basic statistics}
 \usage{
 calc_Stats(data)
 }
 \arguments{
-\item{data}{input data}
+\item{data}{\code{\link{data.frame}} (\bold{required}): 
+A log file imported with \code{\link{import_Data}}.}
 }
 \value{
-A data frame
+A \code{\link{data.frame}} with information on the mean, median,
+standard deviation, relative standard deviation, variance, range,
+minimum and maximum value and slope of a linear regression.
 }
 \description{
-Calculates basic statistics
+This function calculates several descriptive statistics.
 }
 \examples{
 # none

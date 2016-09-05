@@ -7,15 +7,20 @@
 import_Data(file, warnings = FALSE)
 }
 \arguments{
-\item{file}{full path to the file}
+\item{file}{\code{\link{character}} (\bold{required}): Full path to a log file.}
 
-\item{warnings}{show warnings produced by readLines (TRUE or FALSE)}
+\item{warnings}{\code{\link{logical}} (optional): 
+\code{TRUE} to show warnings produced by \code{\link{readLines}}.}
 }
 \value{
-a data.frame
+Returns a \code{\link{data.frame}}.
 }
 \description{
-Insert valuable information here
+This function imports a .log file to R and produces a \code{data.frame} to 
+be used for further processing.
+}
+\note{
+The error code \code{65534} is converted to \code{\link{NA}}.
 }
 \examples{
 # none

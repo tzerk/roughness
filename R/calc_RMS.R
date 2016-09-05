@@ -1,9 +1,13 @@
-#' Calculates various roughness parameters
+#' Calculate Root Mean Square Height after Davidson et al. 2003
+#' 
+#' This function calculates the Root Mean Square (RMS) Height after Davidson et al. 2003.
 #'
-#' @param data input data
-#' @param ... currently not used
+#' @param data \code{\link{data.frame}} (\bold{required}): 
+#' A log file imported with \code{\link{import_Data}}.
+#' 
+#' @param ... Currently not used.
 #'
-#' @return console output
+#' @return A \code{\link{data.frame}} containing the RMS value.
 #'
 #' @examples
 #' # none

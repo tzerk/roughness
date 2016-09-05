@@ -2,20 +2,21 @@
 % Please edit documentation in R/calc_RMS.R
 \name{calc_RMS}
 \alias{calc_RMS}
-\title{Calculates various roughness parameters}
+\title{Calculate Root Mean Square Height after Davidson et al. 2003}
 \usage{
 calc_RMS(data, ...)
 }
 \arguments{
-\item{data}{input data}
+\item{data}{\code{\link{data.frame}} (\bold{required}): 
+A log file imported with \code{\link{import_Data}}.}
 
-\item{...}{currently not used}
+\item{...}{Currently not used.}
 }
 \value{
-console output
+A \code{\link{data.frame}} containing the RMS value.
 }
 \description{
-Calculates various roughness parameters
+This function calculates the Root Mean Square (RMS) Height after Davidson et al. 2003.
 }
 \examples{
 # none

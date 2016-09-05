@@ -1,12 +1,17 @@
 #' Function to import .log files
 #'
-#' Insert valuable information here
+#' This function imports a .log file to R and produces a \code{data.frame} to 
+#' be used for further processing.
 #'
-#' @param file full path to the file
+#' @param file \code{\link{character}} (\bold{required}): Full path to a log file.
 #' 
-#' @param warnings show warnings produced by readLines (TRUE or FALSE)
+#' @param warnings \code{\link{logical}} (optional): 
+#' \code{TRUE} to show warnings produced by \code{\link{readLines}}.
 #'
-#' @return a data.frame
+#' @return Returns a \code{\link{data.frame}}.
+#' 
+#' @note 
+#' The error code \code{65534} is converted to \code{\link{NA}}.
 #' 
 #' @examples
 #' # none

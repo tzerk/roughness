@@ -1,29 +1,39 @@
 #' Function to detect outliers in the roughness data
 #' 
-#' This function applies three different methods to detect outliers 
+#' This function applies three different methods to detect outliers.
 #'
-#' @param data the .log file
+#' @param data \code{\link{data.frame}} (\bold{required}): 
+#' A log file imported with \code{\link{import_Data}}.
 #' 
-#' @param prefilter remove values that are +- 10 cm of the median
+#' @param prefilter \code{\link{logical}} (optional): 
+#' \code{TRUE} to remove values that are +- 10 cm of the median
 #' 
-#' @param method currently implemented: "iqr", "sd", "mad"
+#' @param method \code{\link{character}} (optional): 
+#' Vector of methods applied to detect outliers.
+#' Currently implemented: \code{"iqr"} for Interquartile Range (see \code{\link{IQR}}),
+#'  \code{"sd"} for Standard Deviation or \code{"mad"} for
+#' Median Absolut Deviation.
 #' 
-#' @param remove returns the original data set with ourliers removed by the
-#' specified method (same options as for argument 'method')
+#' @param remove \code{\link{character}} (optional):
+#' Returns the original data set with ourliers removed by the
+#' specified method (same options as for argument \code{method}).
 #' 
-#' @param window identify outliers in moving windows
+#' @param window \code{\link{logical}} (optional):
+#' If \code{TRUE} the data set is split in chunks of size specified by \code{width}
+#' before applying any of the detection methods.
 #' 
-#' @param width width of moving window
+#' @param width \code{\link{integer}} (optional): Width of moving window.
 #' 
-#' @param step step size of moving window
+#' @param step \code{\link{integer}} (optional): Step size of moving window.
 #' 
-#' @param hist should histograms be plotted?
+#' @param hist \code{\link{logical}} (optional): Should histograms be plotted?
 #' 
-#' @param plot should the results be plotted?
+#' @param plot \code{\link{logical}} (optional): Should the results be plotted?
 #' 
-#' @param ... currently unused
+#' @param ... Currently unused.
 #'
-#' @return A plot and the data set with outliers removed is returned
+#' @return The data set with outliers removed is returned. Optionally, a plot
+#' is created
 #' 
 #' @export
 #'

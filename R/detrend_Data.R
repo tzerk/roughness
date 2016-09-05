@@ -1,13 +1,18 @@
 #' Linear regression to detrend the data
 #'
-#' @param data input data
-#' @param plot TRUE or FALSE
+#' This function performs a linear regression to detrend the data set.
 #'
-#' @return console output
+#' @param data \code{\link{data.frame}} (\bold{required}): 
+#' A log file imported with \code{\link{import_Data}}.
+#' 
+#' @param plot \code{\link{logical}} (optional): \code{TRUE} to plot
+#' the data set before and after detrending.
+#'
+#' @return A \code{\link{data.frame}} with detrended input data.
 #'
 #' @examples
 #' 
-#' # none availble yet
+#' # none
 #' 
 #' @export
 detrend_Data <- function(data,

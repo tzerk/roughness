@@ -1,17 +1,18 @@
 #' Calculate the Correlation length
 #'
-#' <placeholder>
+#' Function to calculate the correlation length.
 #' 
-#' <placeholder>
+#' @param data \code{\link{data.frame}} (\bold{required}): 
+#' A log file imported with \code{\link{import_Data}}.
+#' 
+#' @param plot \code{\link{logical}} (optional): \code{TRUE} to plot
+#' the graphs produced by \code{\link{acf}}.
 #'
-#' @param data input data
-#' @param plot TRUE or FALSE
-#'
-#' @return console output
+#' @return A plot and a \code{\link{numeric}} value of the correlation length.
 #'
 #' @examples
 #' 
-#' # none available yet
+#' # none
 #' 
 #' @export
 calc_CorrelationLength <- function(data, plot = TRUE) {

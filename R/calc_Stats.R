@@ -1,8 +1,14 @@
-#' Calculates basic statistics
+#' Calculate basic statistics
+#' 
+#' This function calculates several descriptive statistics.
+#' 
+#' @param data \code{\link{data.frame}} (\bold{required}): 
+#' A log file imported with \code{\link{import_Data}}.
 #'
-#' @param data input data
-#'
-#' @return A data frame
+#' @return A \code{\link{data.frame}} with information on the mean, median,
+#' standard deviation, relative standard deviation, variance, range,
+#' minimum and maximum value and slope of a linear regression.
+#' 
 #' @export
 #'
 #' @examples
