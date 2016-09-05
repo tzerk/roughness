@@ -5,7 +5,7 @@
 #' @name roughness-package
 #' @aliases roughness
 #' @docType package
-#' @importFrom graphics boxplot hist par plot points abline
+#' @importFrom graphics boxplot hist par plot points abline legend
 #' @importFrom stats na.omit na.pass coef
 #' @importFrom utils modifyList
 NULL
