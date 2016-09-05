@@ -14,7 +14,18 @@
 #' The error code \code{65534} is converted to \code{\link{NA}}.
 #' 
 #' @examples
-#' # none
+#' 
+#' \dontrun{
+#' # not run
+#' data <- import_Data("~/PATH/TO/file.log", warnings = FALSE)
+#' }
+#' 
+#' # An example data set can be loaded via
+#' file <- system.file("extdata/raw.log", package = "roughness")
+#' data <- import_Data(file)
+#' 
+#' # show first entries of example data set
+#' head(data)
 #' 
 #' @export
 import_Data <- function(file, warnings = FALSE) {

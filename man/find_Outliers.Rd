@@ -47,6 +47,36 @@ is created
 This function applies three different methods to detect outliers.
 }
 \examples{
-# none
+
+# Load example data
+file <- system.file("extdata/raw.log", package = "roughness")
+data <- import_Data(file)
+
+# find outliers
+data_cleaned <- find_Outliers(data = data,
+                              prefilter = TRUE,
+                              method = c("iqr", "sd", "mad"),
+                              remove = "mad",
+                              window = FALSE,
+                              width = 20,
+                              step = 10, 
+                              hist = TRUE,
+                              plot = TRUE)
+
+head(data_cleaned)
+
+# find outliers with window technique
+data_cleaned2 <- find_Outliers(data = data,
+                               prefilter = TRUE,
+                               method = "mad",
+                               remove = "mad",
+                               window = FALSE,
+                               width = 30,
+                               step = 15, 
+                               hist = TRUE,
+                               plot = TRUE)
+                               
+head(data_cleaned2)
+
 }
 

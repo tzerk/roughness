@@ -21,7 +21,23 @@ This function performs a linear regression to detrend the data set.
 }
 \examples{
 
-# none
+# Load example data
+file <- system.file("extdata/raw.log", package = "roughness")
+data <- import_Data(file)
+
+# find and remove outliers
+data_cleaned <- find_Outliers(data = data,
+                              prefilter = TRUE,
+                              method = c("iqr", "sd", "mad"),
+                              remove = "mad",
+                              window = FALSE,
+                              width = 20,
+                              step = 10, 
+                              hist = TRUE,
+                              plot = TRUE)
+                              
+# de-trend the data set
+data_detrend <- detrend_Data(data_cleaned, plot = TRUE)
 
 }
 

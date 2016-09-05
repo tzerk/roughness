@@ -19,7 +19,31 @@ A \code{\link{data.frame}} containing the RMS value.
 This function calculates the Root Mean Square (RMS) Height after Davidson et al. 2003.
 }
 \examples{
-# none
+
+# Load example data
+file <- system.file("extdata/raw.log", package = "roughness")
+data <- import_Data(file)
+
+# find and remove outliers
+data_cleaned <- find_Outliers(data = data,
+                              prefilter = TRUE,
+                              method = c("iqr", "sd", "mad"),
+                              remove = "mad",
+                              window = FALSE,
+                              width = 20,
+                              step = 10, 
+                              hist = TRUE,
+                              plot = TRUE)
+                              
+# de-trend the data set
+data_detrend <- detrend_Data(data_cleaned, plot = TRUE)
+
+# calculate RMS
+RMS <- calc_RMS(data_detrend)
+print(RMS)
+
+# note that the function returns a data frame
+str(RMS)
 
 }
 
