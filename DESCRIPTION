@@ -4,10 +4,10 @@ Title: A Collection of Functions Related to Soil Surface Roughness
 Version: 0.1.0.9000
 Date: 2016-09-05
 Authors@R: c(
-    person("Christoph", "Burow", role = c("ctb", "cre"), email = "christoph.burow@uni-koeln.de"),
+    person("Christoph", "Burow", role = c("ctb", "cre"), email = "christoph.burow@gmx.net"),
     person("Stephanie", "Scheffler", role = c("aut", "ctb", "dtc"))
     )
-Maintainer: Christoph Burow <christoph.burow@uni-koeln.de>
+Maintainer: Christoph Burow <christoph.burow@gmx.net>
 Description: A Collection of Functions Related to Soil Surface Roughness.
 License: GPL-3
 URL: https://github.com/tzerk/roughness
