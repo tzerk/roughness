@@ -21,4 +21,3 @@ This function calculates several descriptive statistics.
 \examples{
 # none
 }
-

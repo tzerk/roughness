@@ -2,10 +2,9 @@
 % Please edit documentation in R/roughness.R
 \docType{package}
 \name{roughness-package}
-\alias{roughness}
 \alias{roughness-package}
+\alias{roughness}
 \title{A Collection of functions related to soil surface roughness}
 \description{
 This package is in earliest alpha stage, so there is not much to see yet.
 }
-

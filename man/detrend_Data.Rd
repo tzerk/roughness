@@ -40,4 +40,3 @@ data_cleaned <- find_Outliers(data = data,
 data_detrend <- detrend_Data(data_cleaned, plot = TRUE)
 
 }
-

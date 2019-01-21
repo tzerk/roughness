@@ -44,4 +44,3 @@ CL <- calc_CorrelationLength(data_detrend, plot = TRUE)
 print(CL)
 
 }
-

@@ -37,4 +37,3 @@ data <- import_Data(file)
 head(data)
 
 }
-

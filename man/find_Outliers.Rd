@@ -5,8 +5,8 @@
 \title{Function to detect outliers in the roughness data}
 \usage{
 find_Outliers(data, prefilter = TRUE, method = c("iqr", "sd", "mad"),
-  remove = "mad", window = FALSE, width = 20, step = 10, hist = TRUE,
-  plot = TRUE, ...)
+  remove = "mad", window = FALSE, width = 20, step = 10,
+  hist = TRUE, plot = TRUE, ...)
 }
 \arguments{
 \item{data}{\code{\link{data.frame}} (\bold{required}): 
@@ -79,4 +79,3 @@ data_cleaned2 <- find_Outliers(data = data,
 head(data_cleaned2)
 
 }
-
