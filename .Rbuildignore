@@ -10,6 +10,7 @@ README\.md
 ^cran-comments\.md$
 ^packrat/
 packrat
+LICENSE
 scripts/
 misc/
 dev/
