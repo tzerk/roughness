@@ -6,7 +6,7 @@
 \usage{
 find_Outliers(data, prefilter = TRUE, method = c("iqr", "sd", "mad"),
   remove = "mad", window = FALSE, width = 20, step = 10,
-  hist = TRUE, plot = TRUE, ...)
+  hist = TRUE, plot = TRUE, plot.single = FALSE, ...)
 }
 \arguments{
 \item{data}{\code{\link{data.frame}} (\bold{required}): 
@@ -36,6 +36,9 @@ before applying any of the detection methods.}
 \item{hist}{\code{\link{logical}} (optional): Should histograms be plotted?}
 
 \item{plot}{\code{\link{logical}} (optional): Should the results be plotted?}
+
+\item{plot.single}{\code{\link{logical}} (optional):
+Should the plots be combined or individually presented?}
 
 \item{...}{Currently unused.}
 }

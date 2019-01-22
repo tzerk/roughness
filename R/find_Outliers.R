@@ -30,6 +30,9 @@
 #' 
 #' @param plot \code{\link{logical}} (optional): Should the results be plotted?
 #' 
+#' @param plot.single \code{\link{logical}} (optional):
+#' Should the plots be combined or individually presented?
+#' 
 #' @param ... Currently unused.
 #'
 #' @return The data set with outliers removed is returned. Optionally, a plot
@@ -78,6 +81,7 @@ find_Outliers <- function(data,
                           step = 10, 
                           hist = TRUE,
                           plot = TRUE,
+                          plot.single = FALSE,
                           ...) {
   
   ## rewrite data (backwards compatibility)
@@ -165,7 +169,11 @@ find_Outliers <- function(data,
     
     
     # set graphical parameters, 2 columns, 4 rows
-    par(mfrow = c(length(method) + 1, ifelse(hist, 2, 1)))
+    if (plot.single)
+      par(mfrow = c(length(method) + 1, ifelse(hist, 2, 1)))
+    else
+      par(mfrow = c(1, ifelse(hist, 2, 1)))
+      
     
     #plots "numericdata" as a scatter plot without outliers
     plot_Outlier(x = datacm$x, y = datacm$y, main = settings$main,
