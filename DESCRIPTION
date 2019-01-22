@@ -10,7 +10,7 @@ Authors@R: c(
 Maintainer: Christoph Burow <christoph.burow@gmx.net>
 Description: A Collection of Functions Related to Soil Surface Roughness.
 License: GPL-3
-Encoding: UTF-8 
+Encoding: UTF-8
 URL: https://github.com/tzerk/roughness
 BugReports: https://github.com/tzerk/roughness/issues
 LazyData: TRUE
